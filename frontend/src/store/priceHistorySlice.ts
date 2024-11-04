@@ -47,7 +47,14 @@ const apiState = (state: RootState) => state.priceHistory.apiState;
 const priceHistorySlice = createSlice({
   name: 'priceHistory',
   initialState,
-  reducers: {},
+  reducers: {
+    resetPriceHistory: (state) => {
+      state.history = [];
+      state.symbol = null;
+      state.apiState.error = false;
+      state.apiState.loading = false;
+    }
+  },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchPriceHistory.fulfilled, (state, action) => {
@@ -71,6 +78,7 @@ const priceHistorySlice = createSlice({
     });
   }
 });
+export const { resetPriceHistory } = priceHistorySlice.actions;
 
 const selectors = {
   selectPriceHistory,

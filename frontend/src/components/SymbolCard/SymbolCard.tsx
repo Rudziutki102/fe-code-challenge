@@ -42,7 +42,7 @@ const SymbolCard = memo(({ id, onClick, price, selected }: SymbolCardProps) => {
       <div className="symbolCard__content">
         <div className="symbolCard__price">
           <div className="symbolCard__price-label">Price:</div>
-          <div className="symbolCard__price-value">${price ? price.toFixed(0) : '--'} </div>
+          <div className="symbolCard__price-value">${price ? Math.floor(price) : '--'} </div>
         </div>
         {showCardInfo ? (
           <>

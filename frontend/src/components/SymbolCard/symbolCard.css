@@ -1,9 +1,52 @@
 .symbolCard {
-  border: 2px solid black; /* just for visibility, feel free to remove it */
-  margin: 10px; /* just for visibility, feel free to remove it */
-  padding: 10px; /* just for visibility, feel free to remove it */
+  position: relative;
+  border-radius: 8px;
+  background-color: var(--colorWhite);
+  transition: box-shadow ease-in-out 0.5s, transform 0.2s;
 }
-
+.symbolCard__header {
+  padding: 2px 5px;
+  font-weight: 500;
+  color: var(--colorWhite);
+  border-radius: 8px 8px 0 0;
+  background-color: var(--colorDark);
+}
+.symbolCard__content {
+  padding: 5px 5px;
+}
+.symbolCard__price {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.symbolCard__price-label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.symbolCard__price-value {
+  font-size: 22px;
+  font-weight: 700;
+}
+[data-selected='true'] {
+  transform: scale(1.04);
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 1);
+}
+[data-selected='false'] {
+  transform: scale(0.96);
+}
+[data-selected='true'] {
+  --scale: 1.04;
+}
+[data-selected='false'] {
+  --scale: 0.96;
+}
+.symbolCard__up {
+  box-shadow: 0px 0px 16px 0px rgba(28, 181, 22, 1);
+}
+.symbolCard__down {
+  box-shadow: 0px 0px 16px 0px rgba(233, 10, 10, 1);
+}
 .symbolCard__shake {
   animation: shake 0.62s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
@@ -11,12 +54,12 @@
 @keyframes shake {
   10%,
   90% {
-    transform: translateX(-2px);
+    transform: scale(var(--scale)) translateX(-2px);
   }
 
   20%,
   80% {
-    transform: translateX(4px);
+    transform: scale(var(--scale)) translateX(4px);
   }
 
   25%,
@@ -25,7 +68,7 @@
   55%,
   65%,
   75% {
-    transform: translateX(-6px);
+    transform: scale(var(--scale)) translateX(-6px);
   }
 
   30%,
@@ -33,6 +76,6 @@
   50%,
   60%,
   70% {
-    transform: translateX(6px);
+    transform: scale(var(--scale)) translateX(6px);
   }
 }

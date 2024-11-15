@@ -2,6 +2,7 @@
   position: relative;
   border-radius: 8px;
   background-color: var(--colorWhite);
+  --scale: 1;
   transition: box-shadow ease-in-out 0.5s, transform 0.2s;
 }
 .symbolCard__header {
